@@ -22,6 +22,8 @@ class Game {
     computerPaddle = createSprite(100, 50, 50, 100);
     computerPaddle.visible = false;
     players = [playerPaddle, computerPaddle];
+                ball.velocityX = 3;
+            ball.velocityY = 4;
   }
   play() {
     var index = 0;
@@ -63,8 +65,6 @@ class Game {
         }
         if (player.index == 1) {
           if (keyDown("space")) {
-            ball.velocityX = 3;
-            ball.velocityY = 4;
             player.updateBall(ball.x, ball.y);
             database.ref("isSpaceDown").set({ isSpaceDown: true });
           }
@@ -91,8 +91,7 @@ class Game {
       if (ball.x > 400 || ball.x < 0) {
         ball.x = 200;
         ball.y = 200;
-        ball.velocityX = 0;
-        ball.velocityY = 0;
+
       }
     }
   }
